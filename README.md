@@ -1,9 +1,11 @@
 # NSS Fork for IPQ807x
 | Branch                                                                                  | mac80211 Version | Notes                                                                 |
 |-----------------------------------------------------------------------------------------|------------------|----------------------------------------------------------------------|
-| [nbg7815-main-nss](https://github.com/asvio/nbg7815-nss/tree/nbg7815-main-nss)          |6.12.6|Current with upstream `main` (unstable)|
-| [nbg7815-24.10-nss](https://github.com/asvio/nbg7815-nss/tree/nbg7815-24.10-nss)        |6.11.2|Current with upstream `openwrt-24.10` (next stable release)|
+| [main-nss](https://github.com/qosmio/openwrt-ipq/tree/main-nss)                 |6.12.6|Current with upstream `main` (unstable)|
+| [24.10-nss](https://github.com/qosmio/openwrt-ipq/tree/24.10-nss)               |6.11.2|Current with upstream `openwrt-24.10` (next stable release)|
+| [24.10-nss-mx4300](https://github.com/qosmio/openwrt-ipq/tree/24.10-nss-mx4300) |6.11.2|Current with upstream `openwrt-24.10` [supports Linksys MX4300](https://github.com/openwrt/openwrt/pull/16070)|
 
+UPDATE: As of [2024-12-31 support for MX4300 has been merged](https://github.com/openwrt/openwrt/pull/16070) upstream in `main` branch and `main-nss-mx4300` is no longer needed.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -14,7 +16,7 @@
 - [OK, I Want NSS. Does My Device Support It?](#ok-i-want-nss-does-my-device-support-it)
 - [Quickstart](#quickstart)
 - [Important Note](#important-note)
-- [Donate](#Support-the-NSS-support-Project)
+- [Donate](#donate)
 
 ---
 
@@ -90,8 +92,8 @@ Supported devices include, but are not limited to:
 
 1. Clone this repository:
    ```bash
-   git clone -b nbg7815-main-nss https://github.com/asvio/nbg7815-nss.git nbg7815-nss
-   cd nbg7815-nss
+   git clone https://github.com/qosmio/openwrt-ipq -b main-nss
+   cd openwrt-ipq
    ```
 2. Update feeds:
    ```bash
@@ -100,13 +102,20 @@ Supported devices include, but are not limited to:
    ```
 3. Copy over the seed file
    ```bash
-   cp nbg7815-config .config
+   cp nss-setup/config-nss.seed .config
    ```
-4. Generate the full config
+4. Open the `.config` in a text editor, find your device, and remove the "#" and change `"is not set"` to `"=y"`
+
+   Example:
+   ```diff
+   -# CONFIG_TARGET_qualcommax_ipq807x_DEVICE_dynalink_dl-wrx36 is not set
+   +CONFIG_TARGET_qualcommax_ipq807x_DEVICE_dynalink_dl-wrx36=y
+   ```
+6. Generate the full config
    ```bash
    make defconfig V=s
    ```
-5. Now run full build
+7. Now run full build
    ```bash
    make download -j$(nproc) V=s
    make -j$(nproc) V=s
@@ -144,13 +153,9 @@ If you have questions or issues, please join the discussion on OpenWrt's forums.
 
    5. Be respectful and mindful. I dedicate my free time to maintain and improve this project, and I do it for the benefit of the community. Remember that I'm not a full-time developer or support team—I'm just an individual sharing my work. Constructive feedback is always welcome, but please refrain from being overly critical or demanding.
 
-## Support the NSS support Project
+## Support the Project
 
-Developer comment on NSS support:
-
-"I never really thought about setting up donations before, but with so many people being receptive and appreciative and asking how to contribute, I figured, why not? Of course, this project also builds on the incredible work done by the talented devs upstream who put in countless hours into OpenWrt itself. I’ll definitely continue working on this, but if you’d like to support, every bit helps."
-
-Donations will go to him
+I never really thought about setting up donations before, but with so many people being receptive and appreciative and asking how to contribute, I figured, why not? Of course, this project also builds on the incredible work done by the talented devs upstream who put in countless hours into OpenWrt itself. I’ll definitely continue working on this, but if you’d like to support, every bit helps.
 
 [![Donate with PayPal](./paypal.png)](https://www.paypal.com/donate?business=3V3H2SZFY7DNQ&item_name=Maintaining+NSS+fork+of+OpenWRT+and+NSS+packages.)
 <a href="https://cash.app/$austinzk">
