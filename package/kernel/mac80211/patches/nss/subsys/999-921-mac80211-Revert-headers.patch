@@ -1,6 +1,6 @@
 --- a/include/net/mac80211.h
 +++ b/include/net/mac80211.h
-@@ -4549,7 +4549,7 @@ struct ieee80211_ops {
+@@ -4547,7 +4547,7 @@ struct ieee80211_ops {
  				  u64 changed);
  	void (*nss_bss_info_changed)(struct ieee80211_hw *hw,
  				     struct ieee80211_vif *vif,
@@ -9,7 +9,7 @@
  	int (*start_ap)(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
  			struct ieee80211_bss_conf *link_conf);
  	void (*stop_ap)(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
-@@ -4859,7 +4859,7 @@ struct ieee80211_ops {
+@@ -4857,7 +4857,7 @@ struct ieee80211_ops {
  	int (*reset_tid_config)(struct ieee80211_hw *hw,
  				struct ieee80211_vif *vif,
  				struct ieee80211_sta *sta, u8 tids);
