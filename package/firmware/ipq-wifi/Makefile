@@ -5,7 +5,7 @@ PKG_NAME:=ipq-wifi
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL=https://github.com/asvio/firmware_qca-wireless.git
+PKG_SOURCE_URL=https://github.com/jackyaway/firmware_qca-wireless.git
 PKG_SOURCE_DATE:=2025-06-02
 PKG_SOURCE_VERSION:=49a355762d8891d4e27f7785fa863782bf8ca5be
 PKG_MIRROR_HASH:=7bf163f58e330e2bf72f56e1eeb59094c33de3884fc256983df5f57ea89c9b4a
