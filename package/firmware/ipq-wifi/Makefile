@@ -5,10 +5,10 @@ PKG_NAME:=ipq-wifi
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL=$(PROJECT_GIT)/project/firmware/qca-wireless.git
-PKG_SOURCE_DATE:=2026-01-28
-PKG_SOURCE_VERSION:=88514e5aab3e1c0dabad81c7ace815c2fa45565a
-PKG_MIRROR_HASH:=d51f25001a8cf166bc6d42372861b4290c69dae1f8aaeb9b1e5d85f4b06f8545
+PKG_SOURCE_URL=https://github.com/jackyaway/firmware_qca-wireless.git
+PKG_SOURCE_DATE:=2026-01-26
+PKG_SOURCE_VERSION:=a6044fe919f35d1e744b83e21bd3bd4e3fc4d6d6
+PKG_MIRROR_HASH:=67d527f41724cfbf6fa39a0ae0ae98344129a7a3ac7be87cfc76e31aac1b2d75
 PKG_FLAGS:=nonshared
 
 include $(INCLUDE_DIR)/package.mk
